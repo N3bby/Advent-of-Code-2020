@@ -32,13 +32,13 @@ data class Passport(private val passport: String) {
                 passportIdValid()
     }
 
-    fun birthYearValid(): Boolean = yearValid(birthYear, 1920..2002)
+    private fun birthYearValid(): Boolean = yearValid(birthYear, 1920..2002)
 
-    fun issueYearValid(): Boolean = yearValid(issueYear, 2010..2020)
+    private fun issueYearValid(): Boolean = yearValid(issueYear, 2010..2020)
 
-    fun expirationYearValid(): Boolean = yearValid(expirationYear, 2020..2030)
+    private fun expirationYearValid(): Boolean = yearValid(expirationYear, 2020..2030)
 
-    fun heightValid(): Boolean {
+    private fun heightValid(): Boolean {
         if (height == null) return false
         return if ("\\d+cm".toRegex().matches(height)) {
             height.replace("cm", "").toInt() in 150..193
@@ -49,17 +49,17 @@ data class Passport(private val passport: String) {
         }
     }
 
-    fun hairColorValid(): Boolean {
+    private fun hairColorValid(): Boolean {
         if (hairColor == null) return false
         return "#[0-9a-f]{6}".toRegex().matches(hairColor)
     }
 
-    fun eyeColorValid(): Boolean {
+    private fun eyeColorValid(): Boolean {
         if (eyeColor == null) return false
         return "amb|blu|brn|gry|grn|hzl|oth".toRegex().matches(eyeColor)
     }
 
-    fun passportIdValid(): Boolean {
+    private fun passportIdValid(): Boolean {
         if (passportId == null) return false
         return "\\d{9}".toRegex().matches(passportId)
     }
