@@ -12,6 +12,11 @@ class IOUtils {
                 .lines()
                 .toList()
         }
+
+        fun readText(path: String): String {
+            return BufferedReader(InputStreamReader(javaClass.classLoader.getResourceAsStream(path)))
+                .readText()
+        }
     }
 
 }
