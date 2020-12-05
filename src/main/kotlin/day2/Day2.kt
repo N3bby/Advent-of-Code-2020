@@ -6,10 +6,10 @@ fun parsePasswordsWithPasswordPolicies(
 ): List<Password> {
     return lines.map {
         val (policyStr, passwordStr) = it.split(":")
-        val (charOccurrenceRange, character) = policyStr.split(" ")
-        val (minCharOccurrence, maxCharOccurrence) = charOccurrenceRange.split("-")
+        val (numbers, character) = policyStr.split(" ")
+        val (number1, number2) = numbers.split("-")
         Password(
-            policyConstructor(minCharOccurrence.toInt(), maxCharOccurrence.toInt(), character[0]),
+            policyConstructor(number1.toInt(), number2.toInt(), character[0]),
             passwordStr.trim()
         )
     }
