@@ -23,46 +23,35 @@ data class Passport(private val passport: String) {
     private val passportId = getValue(PASSPORT_ID)
 
     fun isValid(): Boolean {
-        return birthYearValid() &&
-                issueYearValid() &&
-                expirationYearValid() &&
-                heightValid() &&
-                hairColorValid() &&
-                eyeColorValid() &&
-                passportIdValid()
+        return isBirthYearValid() &&
+                isIssueYearValid() &&
+                isExpirationYearValid() &&
+                isHeightValid() &&
+                isHairColorValid() &&
+                isEyeColorValid() &&
+                isPassportIdValid()
     }
 
-    private fun birthYearValid(): Boolean = yearValid(birthYear, 1920..2002)
+    private fun isBirthYearValid(): Boolean = isYearValid(birthYear, 1920..2002)
 
-    private fun issueYearValid(): Boolean = yearValid(issueYear, 2010..2020)
+    private fun isIssueYearValid(): Boolean = isYearValid(issueYear, 2010..2020)
 
-    private fun expirationYearValid(): Boolean = yearValid(expirationYear, 2020..2030)
+    private fun isExpirationYearValid(): Boolean = isYearValid(expirationYear, 2020..2030)
 
-    private fun heightValid(): Boolean {
+    private fun isHeightValid(): Boolean {
         if (height == null) return false
-        return if ("\\d+cm".toRegex().matches(height)) {
-            height.replace("cm", "").toInt() in 150..193
-        } else if ("\\d+in".toRegex().matches(height)) {
-            height.replace("in", "").toInt() in 59..76
-        } else {
-            false
+        return when {
+            "\\d+cm".toRegex().matches(height) -> height.replace("cm", "").toInt() in 150..193
+            "\\d+in".toRegex().matches(height) -> height.replace("in", "").toInt() in 59..76
+            else -> false
         }
     }
 
-    private fun hairColorValid(): Boolean {
-        if (hairColor == null) return false
-        return "#[0-9a-f]{6}".toRegex().matches(hairColor)
-    }
+    private fun isHairColorValid(): Boolean = doesRegexMatch(hairColor, "#[0-9a-f]{6}".toRegex())
 
-    private fun eyeColorValid(): Boolean {
-        if (eyeColor == null) return false
-        return "amb|blu|brn|gry|grn|hzl|oth".toRegex().matches(eyeColor)
-    }
+    private fun isEyeColorValid(): Boolean = doesRegexMatch(eyeColor, "amb|blu|brn|gry|grn|hzl|oth".toRegex())
 
-    private fun passportIdValid(): Boolean {
-        if (passportId == null) return false
-        return "\\d{9}".toRegex().matches(passportId)
-    }
+    private fun isPassportIdValid(): Boolean = doesRegexMatch(passportId, "\\d{9}".toRegex())
 
     private fun getValue(passportField: PassportField): String? {
         val fields = passport.replace("\n", " ").split(" ")
@@ -70,13 +59,18 @@ data class Passport(private val passport: String) {
         return field?.split(":")?.get(1)
     }
 
-    private fun yearValid(year: String?, range: IntRange): Boolean {
+    private fun isYearValid(year: String?, range: IntRange): Boolean {
         if (year == null) return false
         return if ("\\d{4}".toRegex().matches(year)) {
             year.toInt() in range
         } else {
             false
         }
+    }
+
+    private fun doesRegexMatch(str: String?, regex: Regex): Boolean {
+        if(str == null) return false
+        return regex.matches(str)
     }
 
 }
