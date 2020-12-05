@@ -22,6 +22,10 @@ data class Passport(private val passport: String) {
     private val eyeColor = getValue(EYE_COLOR)
     private val passportId = getValue(PASSPORT_ID)
 
+    fun areRequiredFieldsPresent(): Boolean {
+        return PassportField.values().all { passport.contains("${it.fieldName}:".toRegex()) }
+    }
+
     fun isValid(): Boolean {
         return isBirthYearValid() &&
                 isIssueYearValid() &&

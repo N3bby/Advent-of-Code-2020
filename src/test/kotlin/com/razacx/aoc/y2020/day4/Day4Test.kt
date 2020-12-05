@@ -160,7 +160,18 @@ class PassportTest {
     }
 
     @Test
-    fun countValidPassports_usingPuzzleInput() {
+    fun countValidPassports_withRequiredFieldPresentCheck_usingPuzzleInput() {
+        val passports = parsePassports(
+            readText("day4/passport-batch.txt").replace(
+                "\r",
+                ""
+            )
+        ) // Damn Windows and its carriage returns
+        println("Day 4 Part 1 | Valid passports using extended validation rules: " + passports.count(Passport::areRequiredFieldsPresent))
+    }
+
+    @Test
+    fun countValidPassports_withExtendedValidationChecks_usingPuzzleInput() {
         val passports = parsePassports(
             readText("day4/passport-batch.txt").replace(
                 "\r",
