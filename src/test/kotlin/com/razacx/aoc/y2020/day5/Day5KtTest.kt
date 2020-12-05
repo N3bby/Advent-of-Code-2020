@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test
 import com.razacx.aoc.y2020.util.IOUtils.Companion.readLines
 import kotlin.test.assertEquals
 
-class Day5Test {
+class Day5KtTest {
 
     @Test
     fun `creating SeatPosition using binary partition string gives correct row and column numbers`() {

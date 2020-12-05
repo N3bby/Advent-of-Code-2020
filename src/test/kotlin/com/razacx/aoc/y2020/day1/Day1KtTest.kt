@@ -6,7 +6,7 @@ import java.io.InputStreamReader
 import kotlin.streams.toList
 import kotlin.test.assertEquals
 
-class Day1Test {
+class Day1KtTest {
 
     val exampleNumbers = listOf(
         1721,

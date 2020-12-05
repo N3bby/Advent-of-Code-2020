@@ -7,7 +7,7 @@ import com.razacx.aoc.y2020.util.Position
 import com.razacx.aoc.y2020.day3.ForestTileType.EMPTY as E
 import com.razacx.aoc.y2020.day3.ForestTileType.TREE as T
 
-internal class ForestKtTest {
+class ForestKtTest {
 
     @Test
     fun createForest_createsForestGrid() {

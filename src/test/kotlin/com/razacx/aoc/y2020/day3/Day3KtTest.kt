@@ -3,7 +3,7 @@ package com.razacx.aoc.y2020.day3
 import org.junit.jupiter.api.Test
 import com.razacx.aoc.y2020.util.IOUtils.Companion.readLines
 
-class Day3Test {
+class Day3KtTest {
 
     @Test
     fun countTreesHit_usingPuzzleInput() {

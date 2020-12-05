@@ -6,7 +6,7 @@ import java.io.InputStreamReader
 import kotlin.streams.toList
 import kotlin.test.assertEquals
 
-class Day2Test {
+class Day2KtTest {
 
     @Test
     fun parsePasswordsAndPolicies_correctlyParsesInput() {
