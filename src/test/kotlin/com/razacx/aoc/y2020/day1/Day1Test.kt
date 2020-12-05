@@ -50,12 +50,12 @@ class Day1Test {
 
     @Test
     fun solveExpenseReportPart1_withPuzzleInput() {
-        println(solveExpenseReportPart1(getPuzzleInput(), 2020))
+        println("Day 1 Part 1 | Expense report result for pairs: " + solveExpenseReportPart1(getPuzzleInput(), 2020))
     }
 
     @Test
     fun solveExpenseReportPart2_withPuzzleInput() {
-        println(solveExpenseReportPart2(getPuzzleInput(), 2020))
+        println("Day 1 Part 2 | Expense report result for triples: " + solveExpenseReportPart2(getPuzzleInput(), 2020))
     }
 
     fun assertPairsEqualIgnoringOrder(pair1: Pair<Any, Any>, pair2: Pair<Any, Any>) {

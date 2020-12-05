@@ -43,14 +43,14 @@ class Day2Test {
     fun getValidPasswordCount_usingSledRentalPlacePasswordPolicy_usingPuzzleInput() {
         val passwords =
             getPuzzlePasswords()
-        println(getValidPasswordCount(parsePasswordsWithPasswordPolicies(passwords, ::createSledRentalPlacePasswordPolicy)))
+        println("Day 2 Part 1 | Valid passwords with SledRentalPlacePasswordPolicy: " + getValidPasswordCount(parsePasswordsWithPasswordPolicies(passwords, ::createSledRentalPlacePasswordPolicy)))
     }
 
     @Test
     fun getValidPasswordCount_usingTobogganCorporatePasswordPolicy_usingPuzzleInput() {
         val passwords =
             getPuzzlePasswords()
-        println(getValidPasswordCount(parsePasswordsWithPasswordPolicies(passwords, ::createTobogganCorporatePasswordPolicy)))
+        println("Day 2 Part 2 | Valid passwords with TobogganCorporatePasswordPolicy: " + getValidPasswordCount(parsePasswordsWithPasswordPolicies(passwords, ::createTobogganCorporatePasswordPolicy)))
     }
 
     private fun getPuzzlePasswords() =

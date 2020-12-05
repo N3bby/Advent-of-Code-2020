@@ -25,7 +25,7 @@ class Day5Test {
         val largestSeatID = getSeatPositions()
             .map { it.seatID }
             .maxOrNull()
-        println(largestSeatID)
+        println("Day 5 Part 1 | Largest Seat ID: $largestSeatID")
     }
 
     @Test
@@ -40,8 +40,8 @@ class Day5Test {
                 val previousSeatID = sortedSeatIDsExcludingFirstAndLastRow[i - 1]
                 val seatID = sortedSeatIDsExcludingFirstAndLastRow[i]
                 if(previousSeatID + 1 != seatID) {
-                    println("Found some missing Seat ID(s) between $previousSeatID and $seatID")
-                    println("Your seat is probably ${seatID-1}")
+                    println("Day 5 Part 2 | Found some missing Seat ID(s) between $previousSeatID and $seatID")
+                    println("Day 5 Part 2 | Your seat is probably ${seatID-1}")
                 }
             }
         }

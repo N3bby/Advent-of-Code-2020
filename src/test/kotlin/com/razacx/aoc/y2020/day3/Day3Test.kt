@@ -8,7 +8,7 @@ class Day3Test {
     @Test
     fun countTreesHit_usingPuzzleInput() {
         val forest = getForestFromPuzzleInput()
-        println(forest.countTreesOnSlope(Slope(3, 1)))
+        println("Day 3 Part 1 | Trees hit using slope (3, 1): " + forest.countTreesOnSlope(Slope(3, 1)))
     }
 
     @Test
@@ -25,7 +25,7 @@ class Day3Test {
         val multiplication = slopes
             .map { forest.countTreesOnSlope(it) }
             .reduce { multiplication, treesOnThisSlope -> multiplication * treesOnThisSlope }
-        println(multiplication)
+        println("Day 3 Part 2 | Result of multiplication of trees hit from different slopes: $multiplication")
     }
 
     private fun getForestFromPuzzleInput(): Forest {

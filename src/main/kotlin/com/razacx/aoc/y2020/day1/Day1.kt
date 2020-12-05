@@ -21,7 +21,7 @@ fun findPairThatSumsTo(numbers: List<Int>, sum: Int): Pair<Int, Int>? {
     return numberPairs.find { it.first + it.second == sum }
 }
 
-// Our earlier approach might work, but it won't be very efficient now that we're dealing with triples
+// Our earlier approach might work, but it won't be very memory efficient now that we're dealing with triples
 // (napkin math -> 200^3 = 8e6 triples to generate and check (if we don't eliminate doubles) )
 // So let's try to use a loop instead
 fun findTripleThatSumsTo(numbers: List<Int>, sum: Int): Triple<Int, Int, Int>? {

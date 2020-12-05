@@ -167,7 +167,7 @@ class PassportTest {
                 ""
             )
         ) // Damn Windows and its carriage returns
-        println(passports.count(Passport::isValid))
+        println("Day 4 Part 2 | Valid passports using extended validation rules: " + passports.count(Passport::isValid))
     }
 
     private fun createPassport(
