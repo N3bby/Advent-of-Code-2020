@@ -3,6 +3,7 @@ package day3
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
+import util.Position
 import day3.ForestTileType.EMPTY as E
 import day3.ForestTileType.TREE as T
 

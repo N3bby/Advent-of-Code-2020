@@ -1,5 +1,7 @@
 package day3
 
+import util.Position
+
 open class Grid<T>(private val grid: Array<Array<T>>) {
 
     protected val width = grid[0].size

@@ -1,5 +1,7 @@
 package day3
 
+import util.Position
+
 data class Slope(val right: Int, val down: Int)
 
 operator fun Position.plus(slope: Slope): Position {

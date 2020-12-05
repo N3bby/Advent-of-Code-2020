@@ -1,6 +1,7 @@
 package day3
 
 import day3.ForestTileType.TREE
+import util.Position
 import java.lang.IllegalArgumentException
 
 typealias Forest = HorizontallyRepeatingGrid<ForestTileType>

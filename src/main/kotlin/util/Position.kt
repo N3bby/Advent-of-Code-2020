@@ -1,4 +1,4 @@
-package day3
+package util
 
 data class Position(val x: Int, val y: Int)
 
