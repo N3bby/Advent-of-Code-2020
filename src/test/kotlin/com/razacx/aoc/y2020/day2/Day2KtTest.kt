@@ -23,7 +23,8 @@ class Day2KtTest {
                 Password(SledRentalPlacePasswordPolicy(1, 3, 'a'), "abcde"),
                 Password(SledRentalPlacePasswordPolicy(1, 3, 'b'), "cdefg"),
                 Password(SledRentalPlacePasswordPolicy(2, 9, 'c'), "ccccccccc"),
-            ), passwords
+            ),
+            passwords
         )
     }
 
@@ -41,16 +42,16 @@ class Day2KtTest {
 
     @Test
     fun getValidPasswordCount_usingSledRentalPlacePasswordPolicy_usingPuzzleInput() {
-        val passwords =
-            getPuzzlePasswords()
-        println("Day 2 Part 1 | Valid passwords with SledRentalPlacePasswordPolicy: " + getValidPasswordCount(parsePasswordsWithPasswordPolicies(passwords, ::createSledRentalPlacePasswordPolicy)))
+        val passwords = parsePasswordsWithPasswordPolicies(getPuzzlePasswords(), ::createSledRentalPlacePasswordPolicy)
+        val validPasswordCount = getValidPasswordCount(passwords)
+        println("Day 2 Part 1 | Valid passwords with SledRentalPlacePasswordPolicy: $validPasswordCount")
     }
 
     @Test
     fun getValidPasswordCount_usingTobogganCorporatePasswordPolicy_usingPuzzleInput() {
-        val passwords =
-            getPuzzlePasswords()
-        println("Day 2 Part 2 | Valid passwords with TobogganCorporatePasswordPolicy: " + getValidPasswordCount(parsePasswordsWithPasswordPolicies(passwords, ::createTobogganCorporatePasswordPolicy)))
+        val passwords = parsePasswordsWithPasswordPolicies(getPuzzlePasswords(), ::createTobogganCorporatePasswordPolicy)
+        val validPasswordCount = getValidPasswordCount(passwords)
+        println("Day 2 Part 2 | Valid passwords with TobogganCorporatePasswordPolicy: $validPasswordCount")
     }
 
     private fun getPuzzlePasswords() =
