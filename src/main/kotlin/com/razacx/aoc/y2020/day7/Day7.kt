@@ -34,7 +34,7 @@ private fun parseBagContent(content: String): List<BagContent> {
             // We should be left with something like '9 faded blue' now
         }
         .map {
-            val (_, amount, color) = "(\\d) (.*)".toRegex().matchEntire(it)!!.groupValues
+            val (_, amount, color) = "(\\d*) (.*)".toRegex().matchEntire(it)!!.groupValues
             BagContent(color, amount.toInt())
         }
 }
